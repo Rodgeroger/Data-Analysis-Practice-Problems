@@ -42,19 +42,20 @@ ORDER BY avg_order_value DESC;
 
 /*Identify the month with the highest sales overall.*/
 --cte to find amount of orders per month
+/* Identify the month with the highest sales overall using a CTE */
 WITH Amount_of_Sales_By_Month AS 
 	(SELECT
-		COUNT(*) AS Amount_of_Orders,
-		MONTH(order_date) AS Month
+		FORMAT(order_date, 'yyyy-MM') AS order_month,
+		COUNT(*) AS Amount_of_Orders
 	FROM sales_data
-	GROUP BY MONTH(order_date)
-	)
+	GROUP BY FORMAT(order_date, 'yyyy-MM'))
 SELECT TOP 1
-	MONTH(sd.order_date) AS Month,
-    	ROUND(SUM(quantity * unit_price), 2) AS total_sales
+	sd_month.order_month,
+	ROUND(SUM(sd.quantity * sd.unit_price), 2) AS total_sales,
 	am.Amount_of_Orders
-FROM sales_data AS sd
-JOIN Amount_of_Sales_By_Month AS am
-ON MONTH(sd.order_date) = am.month
-GROUP BY MONTH(sd.order_date), am.Amount_of_Orders
-ORDER BY total_sales DESC
+FROM sales_data sd
+JOIN Amount_of_Sales_By_Month am
+ON FORMAT(sd.order_date, 'yyyy-MM') = am.order_month
+GROUP BY sd_month.order_month, am.Amount_of_Orders
+ORDER BY total_sales DESC;
+
