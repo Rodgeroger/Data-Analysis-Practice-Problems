@@ -37,7 +37,7 @@ FROM sales_data AS sd
 JOIN Amount_of_Orders_per_region AS ar
 ON sd.region = ar.region
 GROUP BY sd.region, ar.Amount_of_Orders
-ORDER BY Average_Order_Value DESC;
+ORDER BY Avg_Order_Value DESC;
 
 /*Identify the month with the highest sales overall.*/
 --cte to find amount of orders per month
@@ -54,5 +54,5 @@ SELECT TOP 1
 FROM sales_data AS sd
 JOIN Amount_of_Sales_By_Month AS am
 ON FORMAT(sd.order_date, 'yyyy-MM') = am.order_month
-GROUP BY sd_month.order_month, am.Amount_of_Orders
+GROUP BY FORMAT(sd.order_date, 'yyyy-MM'), am.Amount_of_Orders
 ORDER BY total_sales DESC;
