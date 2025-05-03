@@ -23,6 +23,6 @@
 3. Visualization (Power BI)
   - Create a bar chart showing total sales per category.
   - Create a time series line chart of total monthly sales.
-  - Build a dashboard that shows KPIs: Total Sales, Total Orders, Top Category.
+  - Build a dashboard that shows KPIs: Total Sales, Total Orders, Top Category, Top Customer.
 
 ![image](https://github.com/user-attachments/assets/f8b356aa-a805-45f3-be58-08519a399547)
