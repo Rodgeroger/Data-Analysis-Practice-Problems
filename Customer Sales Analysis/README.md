@@ -1,5 +1,4 @@
-**Dataset**
-
+Data
 order_id: Unique ID for each order
 
 customer_id: Unique ID for each customer
@@ -15,5 +14,3 @@ quantity: Number of units sold
 unit_price: Price per unit
 
 region: Region where the sale was made
-
-
