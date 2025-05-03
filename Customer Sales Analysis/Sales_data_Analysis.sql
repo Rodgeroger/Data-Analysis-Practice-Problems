@@ -31,7 +31,7 @@ WITH Amount_of_Orders_per_region AS
 	GROUP BY region)
 SELECT TOP 1
 	sd.region,
-    	ROUND(AVG(quantity * unit_price), 2) AS Avg_Order_Value
+    	ROUND(AVG(quantity * unit_price), 2) AS Avg_Order_Value,
 	ar.Amount_of_Orders
 FROM sales_data AS sd
 JOIN Amount_of_Orders_per_region AS ar
