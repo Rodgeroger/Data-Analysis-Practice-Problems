@@ -2,8 +2,6 @@
 
 This project aims to build a Semantic Book Recommender, an AI powered system designed to suggest books based on the semantic meaning and emotional tone of user queries. By leveraging advanced Natural Language Processing (NLP) techniques and Large Language Models (LLMs), the system moves beyond simple keyword matching to understand the deeper context and sentiment in both book descriptions and user inputs
 
-<img width="1448" alt="Image" src="https://github.com/user-attachments/assets/1eae284e-01ae-4b71-b015-a7862a531593" />
-
 ### Features
 
 * **Semantic Search with Vector Embeddings**: Book descriptions are transformed into vector representations, enabling similarity-based search that captures meaning rather than just keywords.
@@ -49,16 +47,27 @@ This project aims to build a Semantic Book Recommender, an AI powered system des
 
 1. **Download the [Book Dataset](https://www.kaggle.com/datasets/dylanjcastillo/7k-books-with-metadata)**  
    - Load a dataset of book titles, isbn's, descriptions, and more from Kaggle.
-2. **Preprocess Text Data**  
+2. **Download following Python Packages**
+   - gradio
+   - sentence-transformers
+   - pandas
+   - numpy
+   - chromadb
+   - langchain
+   - langchain-community
+   - langchain-huggingface
+   - python-dotenv
+   - notebook
+3. **Preprocess Text Data**  
    - Clean, normalize, and tokenize descriptions for consistent input to models.
-3. **Generate Embeddings**  
+4. **Generate Embeddings**  
    - Use a transformer-based model (e.g. HuggingFace Transformers) to convert book descriptions into semantic vector embeddings.
-4. **Process User Queries**  
+5. **Process User Queries**  
    - When a user inputs a query, it is embedded and compared against the book vectors using cosine similarity.
-5. **Zero-Shot Classification**  
+6. **Zero-Shot Classification**  
    - LLMs are used to automatically assign genre and emotion categories to books without any labeled training data, enhancing recommendation relevance and diversity.
-6. **Classify and Filter**  
+7. **Classify and Filter**  
    - The top matches are optionally filtered or refined using genre and emotion outputs from zero-shot classification and sentiment analysis.
-7. **Display Results**  
+8. **Display Results**  
    - Recommendations are presented in the Gradio UI with titles, genres, and sentiment labels.
 
